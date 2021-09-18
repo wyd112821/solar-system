@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .bg-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        background: url(./img/yuzhou.jpeg);
+        background-size: 100% 100%;
+      }
+      .content-box {
+        position: relative;
+        width: 1000px;
+        height: 600px;
+        transform-style: preserve-3d;
+        perspective-origin: 50% 50%;
+        transform: rotateZ(25deg);
+      }
+      .ps-center {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+      }
+      .sun-box {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(247, 125, 4, 0.961),
+          -1px -2px 10px rgba(256, 256, 256, 0.5) inset;
+      }
+      .sun {
+        width: 400px;
+        height: 200px;
+        position: absolute;
+        left: -200px;
+        background: url(./img/sun.jpeg);
+        background-size: 100% 100%;
+        animation: sunRole 50s linear infinite;
+      }
+      @keyframes sunRole {
+        0% {
+          transform: translate(0);
+        }
+        100% {
+          transform: translate(200px);
+        }
+      }
+      .em-box {
+        transform-style: preserve-3d;
+        perspective-origin: 50% 50%;
+        width: 400px;
+        height: 400px;
+        animation: roleSun 100s linear infinite;
+      }
+      .earth-box {
+        transform: rotateZ(20deg);
+        width: 50px;
+        height: 50px;
+        overflow: hidden;
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(5, 97, 184, 0.952),
+          -1px -2px 10px rgba(256, 256, 256, 0.5) inset;
+      }
+      .earth {
+        width: 200px;
+        height: 50px;
+        background: url(./img/earth.jpg);
+        background-size: 100% 100%;
+        position: absolute;
+        left: -100px;
+        animation: earthRole 30s linear infinite;
+      }
+      .moon {
+        width: 120px;
+        height: 30px;
+        background: url(./img/moon.jpeg);
+        background-size: 100% 100%;
+        position: absolute;
+        left: -60px;
+        animation: moonRole 10s linear infinite;
+      }
+      .moon-box {
+        width: 30px;
+        height: 30px;
+        overflow: hidden;
+        border-radius: 50%;
+        animation: roleEarth 30s linear infinite;
+        box-shadow: -4px 0 10px rgba(256, 256, 256, 0.3),
+          -1px -2px 10px rgba(256, 256, 256, 0.5) inset;
+      }
+      .water {
+        width: 160px;
+        height: 40px;
+        background: url(./img/water.jpeg);
+        background-size: 100% 100%;
+        position: absolute;
+        left: -80px;
+        animation: waterRole 20s linear infinite;
+      }
+      .water-box {
+        width: 40px;
+        height: 40px;
+        overflow: hidden;
+        border-radius: 50%;
+        animation: waterRoleSun 70s linear infinite;
+        box-shadow: -4px 0 10px rgba(256, 256, 256, 0.3),
+          -1px -2px 10px rgba(256, 256, 256, 0.5) inset;
+      }
+      .gold {
+        width: 200px;
+        height: 50px;
+        background: url(./img/gold.png);
+        background-size: 100% 100%;
+        position: absolute;
+        left: -100px;
+        animation: goldRole 20s linear infinite;
+      }
+      .gold-box {
+        width: 50px;
+        height: 50px;
+        overflow: hidden;
+        border-radius: 50%;
+        animation: goldRoleSun 20s linear infinite;
+        box-shadow: -4px 0 10px rgba(256, 256, 256, 0.3),
+          -1px -2px 10px rgba(256, 256, 256, 0.5) inset;
+      }
+      .fire {
+        width: 180px;
+        height: 45px;
+        background: url(./img/fire.png);
+        background-size: 100% 100%;
+        position: absolute;
+        left: -90px;
+        animation: fireRole 20s linear infinite;
+      }
+      .fire-box {
+        width: 45px;
+        height: 45px;
+        overflow: hidden;
+        border-radius: 50%;
+        animation: fireRoleSun 30s linear infinite;
+        box-shadow: -4px 0 10px rgba(256, 256, 256, 0.3),
+          -1px -2px 10px rgba(256, 256, 256, 0.5) inset;
+      }
+      .mood {
+        width: 320px;
+        height: 80px;
+        background: url(./img/mood.png);
+        background-size: 100% 100%;
+        position: absolute;
+        left: -160px;
+        animation: moodRole 20s linear infinite;
+      }
+      .mood-box {
+        width: 80px;
+        height: 80px;
+        overflow: hidden;
+        border-radius: 50%;
+        animation: moodRoleSun 60s linear infinite;
+        box-shadow: -4px 0 10px rgba(256, 256, 256, 0.3),
+          -1px -2px 10px rgba(256, 256, 256, 0.5) inset;
+      }
+      .soil {
+        width: 280px;
+        height: 70px;
+        background: url(./img/soil.png);
+        background-size: 100% 100%;
+        position: absolute;
+        left: -140px;
+        animation: soilRole 20s linear infinite;
+      }
+      .soil-box {
+        width: 70px;
+        height: 70px;
+        overflow: hidden;
+        border-radius: 50%;
+        animation: soilRoleSun 50s linear infinite;
+        box-shadow: -4px 0 10px rgba(256, 256, 256, 0.3),
+          -1px -2px 10px rgba(256, 256, 256, 0.5) inset;
+      }
+      @keyframes earthRole {
+        0% {
+          transform: translate(0);
+        }
+        100% {
+          transform: translate(100px);
+        }
+      }
+      @keyframes moonRole {
+        0% {
+          transform: translate(0);
+        }
+        100% {
+          transform: translate(60px);
+        }
+      }
+      @keyframes waterRole {
+        0% {
+          transform: translate(0);
+        }
+        100% {
+          transform: translate(80px);
+        }
+      }
+      @keyframes goldRole {
+        0% {
+          transform: translate(0);
+        }
+        100% {
+          transform: translate(100px);
+        }
+      }
+      @keyframes fireRole {
+        0% {
+          transform: translate(0);
+        }
+        100% {
+          transform: translate(90px);
+        }
+      }
+      @keyframes moodRole {
+        0% {
+          transform: translate(0);
+        }
+        100% {
+          transform: translate(160px);
+        }
+      }
+      @keyframes soilRole {
+        0% {
+          transform: translate(0);
+        }
+        100% {
+          transform: translate(140px);
+        }
+      }
+      @keyframes skykingRole {
+        0% {
+          transform: translate(0);
+        }
+        100% {
+          transform: translate(120px);
+        }
+      }
+      @keyframes roleSun {
+        0% {
+          transform: translateX(-300px) translateZ(0) scale(1);
+        }
+        25% {
+          transform: translateX(0) translateZ(400px) scale(1.5);
+        }
+        50% {
+          transform: translateX(300px) translateZ(0) scale(1);
+        }
+        75% {
+          transform: translateX(0) translateZ(-400px) scale(0.5);
+        }
+        100% {
+          transform: translateX(-300px) translateZ(0) scale(1);
+        }
+      }
+      @keyframes waterRoleSun {
+        0% {
+          transform: translateX(-150px) translateZ(0) scale(1);
+        }
+        25% {
+          transform: translateX(0) translateZ(200px) scale(1.5);
+        }
+        50% {
+          transform: translateX(150px) translateZ(0) scale(1);
+        }
+        75% {
+          transform: translateX(0) translateZ(-200px) scale(0.5);
+        }
+        100% {
+          transform: translateX(-150px) translateZ(0) scale(1);
+        }
+      }
+      @keyframes goldRoleSun {
+        0% {
+          transform: translateX(-220px) translateZ(0) scale(1);
+        }
+        25% {
+          transform: translateX(0) translateZ(300px) scale(1.5);
+        }
+        50% {
+          transform: translateX(220px) translateZ(0) scale(1);
+        }
+        75% {
+          transform: translateX(0) translateZ(-300px) scale(0.5);
+        }
+        100% {
+          transform: translateX(-220px) translateZ(0) scale(1);
+        }
+      }
+      @keyframes fireRoleSun {
+        0% {
+          transform: translateX(-350px) translateZ(0) scale(1);
+        }
+        25% {
+          transform: translateX(0) translateZ(500px) scale(1.5);
+        }
+        50% {
+          transform: translateX(350px) translateZ(0) scale(1);
+        }
+        75% {
+          transform: translateX(0) translateZ(-500px) scale(0.5);
+        }
+        100% {
+          transform: translateX(-350px) translateZ(0) scale(1);
+        }
+      }
+      @keyframes moodRoleSun {
+        0% {
+          transform: translateX(-450px) translateZ(0) scale(1);
+        }
+        25% {
+          transform: translateX(0) translateZ(600px) scale(1.5);
+        }
+        50% {
+          transform: translateX(450px) translateZ(0) scale(1);
+        }
+        75% {
+          transform: translateX(0) translateZ(-600px) scale(0.5);
+        }
+        100% {
+          transform: translateX(-450px) translateZ(0) scale(1);
+        }
+      }
+      @keyframes soilRoleSun {
+        0% {
+          transform: translateX(-550px) translateZ(0) scale(1);
+        }
+        25% {
+          transform: translateX(0) translateZ(700px) scale(1.5);
+        }
+        50% {
+          transform: translateX(550px) translateZ(0) scale(1);
+        }
+        75% {
+          transform: translateX(0) translateZ(-700px) scale(0.5);
+        }
+        100% {
+          transform: translateX(-550px) translateZ(0) scale(1);
+        }
+      }
+      @keyframes roleEarth {
+        0% {
+          transform: translateX(-80px) translateZ(0) scale(1);
+        }
+        25% {
+          transform: translateX(0) translateZ(200px) scale(1.5);
+        }
+        50% {
+          transform: translateX(80px) translateZ(0) scale(1);
+        }
+        75% {
+          transform: translateX(0) translateZ(-200px) scale(0.5);
+        }
+        100% {
+          transform: translateX(-80px) translateZ(0) scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-box">
+      <div class="content-box">
+        <div class="ps-center sun-box">
+          <div class="sun"></div>
+        </div>
+        <div class="ps-center em-box">
+          <div class="ps-center earth-box">
+            <div class="earth"></div>
+          </div>
+          <div class="ps-center moon-box">
+            <div class="moon"></div>
+          </div>
+        </div>
+        <div class="ps-center gold-box">
+          <div class="gold"></div>
+        </div>
+        <div class="ps-center mood-box">
+          <div class="mood"></div>
+        </div>
+        <div class="ps-center water-box">
+          <div class="water"></div>
+        </div>
+        <div class="ps-center fire-box">
+          <div class="fire"></div>
+        </div>
+        <div class="ps-center soil-box">
+          <div class="soil"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
